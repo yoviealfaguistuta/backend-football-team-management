@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('admin', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_perusahaan')->references('id')->on('perusahaan')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nama');
             $table->string('email')->unique();
             $table->string('password');
