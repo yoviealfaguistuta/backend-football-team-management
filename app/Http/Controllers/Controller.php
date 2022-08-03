@@ -10,4 +10,8 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public $SUCCESS_CODE = 200;
+    public $VALIDATION_FAILED_CODE = 422;
+    public $SERVER_ERROR_CODE = 500;
 }
