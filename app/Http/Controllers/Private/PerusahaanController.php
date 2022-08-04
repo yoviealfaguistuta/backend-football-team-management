@@ -79,19 +79,20 @@ class PerusahaanController extends Controller
             return $this->sendValidationFailedResponse('ID harus bilangan bulat', $__type);
         }
 
-        // Cek jika data dengan id yang dikirim terdapat pada tabel
-        if (Perusahaan::where('id', $id)->exists()) {
-
-            // Eksekusi query dari Perusahaan "create" models
-            $data = $this->perusahaan->go_update($request, $id);
-
-            // Cek jika query berhasil dilakukan
-            if ($data) {
-                return $this->sendSuccessResponse($data, $__type);
-            }
-            return $this->sendFailedResponse($data, $__type);
+        // Cek jika terdapat perusahaan dengan ID yang diberikan
+        $perusahaan = $this->perusahaan->go_exists($id);
+        if (!$perusahaan) {
+            return $this->sendFailedResponse('Perusahaan tidak ditemukan', $__type);
         }
-        return $this->sendFailedResponse('Data tidak ditemukan', $__type);
+
+        // Eksekusi query dari Perusahaan "go_update" models
+        $data = $this->perusahaan->go_update($request, $id);
+
+        // Cek jika query berhasil dilakukan
+        if ($data) {
+            return $this->sendSuccessResponse($data, $__type);
+        }
+        return $this->sendFailedResponse($data, $__type);
     }
 
     public function delete($id)
@@ -104,18 +105,19 @@ class PerusahaanController extends Controller
             return $this->sendValidationFailedResponse('ID harus bilangan bulat', $__type);
         }
 
-        // Cek jika data dengan id yang dikirim terdapat pada tabel
-        if (Perusahaan::where('id', $id)->exists()) {
-
-            // Eksekusi query dari Perusahaan "create" models
-            $data = $this->perusahaan->go_delete($id);
-
-            // Cek jika query berhasil dilakukan
-            if ($data) {
-                return $this->sendSuccessResponse($data, $__type);
-            }
-            return $this->sendFailedResponse($data, $__type);
+        // Cek jika terdapat perusahaan dengan ID yang diberikan
+        $perusahaan = $this->perusahaan->go_exists($id);
+        if (!$perusahaan) {
+            return $this->sendFailedResponse('Perusahaan tidak ditemukan', $__type);
         }
-        return $this->sendFailedResponse('Data tidak ditemukan', $__type);
+
+        // Eksekusi query dari Perusahaan "go_delete" models
+        $data = $this->perusahaan->go_delete($id);
+
+        // Cek jika query berhasil dilakukan
+        if ($data) {
+            return $this->sendSuccessResponse($data, $__type);
+        }
+        return $this->sendFailedResponse($data, $__type);
     }
 }

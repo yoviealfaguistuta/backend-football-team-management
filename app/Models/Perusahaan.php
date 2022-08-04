@@ -33,30 +33,31 @@ class Perusahaan extends Model
     ];
 
 
-    public function go_list()
-    {
+    public function go_list() {
         $data = Perusahaan::paginate(10);
         return $data;
     }
 
-    public function go_create($input)
-    {
+    public function go_exists($id) {
+        $data = Perusahaan::where('id', $id)->exists();
+        return $data;
+    }
+
+    public function go_create($input) {
         $data = Perusahaan::create([
             'nama' => $input->nama
         ]);
         return $data;
     }
 
-    public function go_update($input, $id)
-    {
+    public function go_update($input, $id) {
         $data = Perusahaan::where('id', $id)->update([
             'nama' => $input->nama
         ]);
         return $data;
     }
 
-    public function go_delete($id)
-    {
+    public function go_delete($id) {
         $soft_delete = Perusahaan::select('soft_delete')->where('id', $id)->first()->soft_delete;
         
         if ($soft_delete) {

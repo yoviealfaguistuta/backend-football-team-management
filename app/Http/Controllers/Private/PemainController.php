@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Private;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Pemain;
 use App\Models\Tim;
-use App\Models\Perusahaan;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class TimController extends Controller
+class PemainController extends Controller
 {
-    // Link to "Tim" models
+    // Link to "Pemain" models
     public function __construct() {
-        $this->tim = new Tim;
-        $this->perusahaan = new Perusahaan;
+        $this->pemain = new Pemain();
+        $this->tim = new Tim();
     }
 
     public function list()
     {
         // Mengirim nama fungsi untuk memudahkan dalam men debug
-        $__type = 'tim_list';
+        $__type = 'pemain_list';
 
-        // Eksekusi query dari Tim "list" models
-        $data = $this->tim->go_list();
+        // Eksekusi query dari Pemain "list" models
+        $data = $this->pemain->go_list();
 
         // Cek jika terdapat data pada hasil query
         if ($data->total() > 0) {
@@ -33,16 +33,16 @@ class TimController extends Controller
     public function create(Request $request)
     {
         // Mengirim nama fungsi untuk memudahkan dalam men debug
-        $__type = 'tim_create';
+        $__type = 'pemain_create';
 
         // Cek apakah bentuk data yang dikirim telah sesuai
         $validator = Validator::make($request->all(), [
-            'id_perusahaan' => ['required', 'min:1', 'numeric'],
+            'id_tim' => ['required', 'min:1', 'numeric'],
             'nama' => ['required', 'min:6', 'string'],
-            'logo' => ['required', 'mimes:jpeg,jpg,png', 'max:10000'],
-            'tahun_berdiri' => ['required', 'integer', 'min:1900', 'max:'.(date('Y')+1), 'digits:4'],
-            'alamat_markas_tim' => ['required', 'min:6', 'string'],
-            'kota_markas_tim' => ['required', 'min:6', 'max:100', 'string'],
+            'tinggi_badan' => ['required', 'min:1', 'numeric'],
+            'berat_badan' => ['required', 'min:1', 'numeric'],
+            'posisi_pemain' => ['required', 'min:1', 'max:1', 'numeric'],
+            'nomor_punggung' => ['required', 'min:1', 'max:1000', 'numeric'],
         ]);
 
         // Jika data yang dikirim tidak sesuai, maka kembalikan code 422 
@@ -53,17 +53,20 @@ class TimController extends Controller
             );
         }
 
-        // Cek jika terdapat perusahaan dengan ID yang diberikan
-        $perusahaan = $this->perusahaan->go_exists($request->id_perusahaan);
-        if (!$perusahaan) {
-            return $this->sendFailedResponse('Perusahaan tidak ditemukan', $__type);
+        // Cek jika terdapat tim dengan ID yang diberikan
+        $tim = $this->tim->go_exists($request->id_tim);
+        if (!$tim) {
+            return $this->sendFailedResponse('Tim tidak ditemukan', $__type);
         }
 
-        // Menyimpan gambar kedalam folder public dan mengambil nama file
-        $request->logo = $this->uploadFile($request->logo, 'data');
+        // Cek jika terdapat pemain dengan nomor punggung yang sama dalam 1 tim
+        $nomor_punggung = $this->pemain->go_nomor_punggung_exists($request->id_tim, $request->nomor_punggung);
+        if ($nomor_punggung) {
+            return $this->sendFailedResponse('Nomor punggung sudah digunakan', $__type);
+        }
 
-        // Eksekusi query dari Tim "create" models
-        $data = $this->tim->go_create($request);
+        // Eksekusi query dari Pemain "create" models
+        $data = $this->pemain->go_create($request);
 
         // Cek jika query berhasil dilakukan
         if ($data) {
@@ -75,16 +78,16 @@ class TimController extends Controller
     public function update(Request $request, $id)
     {
         // Mengirim nama fungsi untuk memudahkan dalam men debug
-        $__type = 'tim_update';
+        $__type = 'pemain_update';
 
         // Cek apakah bentuk data yang dikirim telah sesuai
         $validator = Validator::make($request->all(), [
-            'id_perusahaan' => ['required', 'min:1', 'numeric'],
+            'id_tim' => ['required', 'min:1', 'numeric'],
             'nama' => ['required', 'min:6', 'string'],
-            'logo' => ['required', 'mimes:jpeg,jpg,png', 'max:10000'],
-            'tahun_berdiri' => ['required', 'integer', 'min:1900', 'max:'.(date('Y')+1), 'digits:4'],
-            'alamat_markas_tim' => ['required', 'min:6', 'string'],
-            'kota_markas_tim' => ['required', 'min:6', 'max:100', 'string'],
+            'tinggi_badan' => ['required', 'min:1', 'numeric'],
+            'berat_badan' => ['required', 'min:1', 'numeric'],
+            'posisi_pemain' => ['required', 'min:1', 'max:1', 'numeric'],
+            'nomor_punggung' => ['required', 'min:1', 'max:1000', 'numeric'],
         ]);
 
         // Jika data yang dikirim tidak sesuai, maka kembalikan code 422 
@@ -101,33 +104,27 @@ class TimController extends Controller
         }
 
         // Cek jika terdapat perusahaan dengan ID yang diberikan
-        $perusahaan = $this->perusahaan->go_exists($request->id_perusahaan);
-        if (!$perusahaan) {
-            return $this->sendFailedResponse('Perusahaan tidak ditemukan', $__type);
-        }
-
-        // Cek jika terdapat tim dengan ID yang diberikan
-        $tim = $this->tim->go_exists($id);
+        $tim = $this->tim->go_exists($request->id_tim);
         if (!$tim) {
             return $this->sendFailedResponse('Tim tidak ditemukan', $__type);
         }
 
-        if ($request->hasFile('logo')) {
-            // Menyimpan gambar kedalam folder public dan mengambil nama file
-            $request->logo = $this->uploadFile($request->logo, 'data');
-
-            // Eksekusi query dari Tim "go_get_old_logo" models untuk mengambil nama logo sebelumnya
-            $old_name_logo = $this->tim->go_get_old_logo($id);
-            
-            // Menghapus logo yang lama dari folder public
-            $this->deleteFile($old_name_logo);
-
-            // Eksekusi query dari Tim "create" models
-            $this->tim->go_update_logo($id, $request->logo);
+        // Cek jika terdapat pemain dengan ID yang diberikan
+        $pemain = $this->pemain->go_exists($id);
+        if (!$pemain) {
+            return $this->sendFailedResponse('Pemain tidak ditemukan', $__type);
         }
 
-        // Eksekusi query dari Tim "go_update" models
-        $data = $this->tim->go_update($request, $id);
+        $pemain = $this->pemain->go_detail($id);
+
+        // Cek jika terdapat pemain dengan nomor punggung yang sama dalam 1 tim
+        $nomor_punggung = $this->pemain->go_nomor_punggung_exists($request->id_tim, $request->nomor_punggung, $pemain->nomor_punggung);
+        if ($nomor_punggung) {
+            return $this->sendFailedResponse('Nomor punggung sudah digunakan', $__type);
+        }
+
+        // Eksekusi query dari Pemain "go_update" models
+        $data = $this->pemain->go_update($request, $id);
 
         // Cek jika query berhasil dilakukan
         if ($data) {
@@ -139,7 +136,7 @@ class TimController extends Controller
     public function delete($id)
     {
         // Mengirim nama fungsi untuk memudahkan dalam men debug
-        $__type = 'tim_delete';
+        $__type = 'pemain_delete';
 
         // Cek jika id yang dikirim bukan bilangan bulat
         if (!is_numeric($id)) {
@@ -147,10 +144,10 @@ class TimController extends Controller
         }
 
         // Cek jika data dengan id yang dikirim terdapat pada tabel
-        if (Tim::where('id', $id)->exists()) {
+        if (Pemain::where('id', $id)->exists()) {
 
-            // Eksekusi query dari Tim "create" models
-            $data = $this->tim->go_delete($id);
+            // Eksekusi query dari Pemain "create" models
+            $data = $this->pemain->go_delete($id);
 
             // Cek jika query berhasil dilakukan
             if ($data) {

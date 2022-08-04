@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nama');
             $table->float('tinggi_badan');
             $table->float('berat_badan');
-            $table->enum('posisi_pemain', [1, 2, 3, 4])->default(1)->comment('1 = penyerang', '2 = gelandang', '3 = bertahan', '4 = penjaga gawang');
+            $table->enum('posisi_pemain', [1, 2, 3, 4])->default(1)->comment('1 = penyerang, 2 = gelandang, 3 = bertahan, 4 = penjaga gawang');
             $table->integer('nomor_punggung')->unique();
             $table->boolean('soft_delete')->default(false);
             $table->timestamps();

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Private\PemainController;
 use App\Http\Controllers\Private\PerusahaanController;
+use App\Http\Controllers\Private\TimController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +31,20 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::post('', [PerusahaanController::class, 'create'])->name('admin.perusahaan.create');
         Route::post('{id}', [PerusahaanController::class, 'update'])->name('admin.perusahaan.update');
         Route::delete('{id}', [PerusahaanController::class, 'delete'])->name('admin.perusahaan.delete');
+    });
+
+    Route::prefix('tim')->group(function () {
+        Route::get('', [TimController::class, 'list'])->name('admin.tim');
+        Route::post('', [TimController::class, 'create'])->name('admin.tim.create');
+        Route::post('{id}', [TimController::class, 'update'])->name('admin.tim.update');
+        Route::delete('{id}', [TimController::class, 'delete'])->name('admin.tim.delete');
+    });
+
+    Route::prefix('pemain')->group(function () {
+        Route::get('', [PemainController::class, 'list'])->name('admin.pemain');
+        Route::post('', [PemainController::class, 'create'])->name('admin.pemain.create');
+        Route::post('{id}', [PemainController::class, 'update'])->name('admin.pemain.update');
+        Route::delete('{id}', [PemainController::class, 'delete'])->name('admin.pemain.delete');
     });
    
 });

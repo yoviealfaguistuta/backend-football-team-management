@@ -41,4 +41,20 @@ class Controller extends BaseController
             '__type'    => $type
         ], $this->VALIDATION_FAILED_CODE);
     }
+
+    public function uploadFile($file, $path)
+    {
+        $nama_file = preg_replace('/\s+/', '', time()."_".$file->getClientOriginalName());
+        $tujuan_upload = public_path('/assets/images/'.$path);
+        $file->move($tujuan_upload, $nama_file);
+        return '/assets/images/'.$path.'/'.$nama_file;
+    }
+
+    public function deleteFile($url)
+    {
+       
+        $file_path = public_path() . $url;
+        return $file_path;
+        return unlink($file_path);
+    }
 }
