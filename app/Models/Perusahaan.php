@@ -57,7 +57,16 @@ class Perusahaan extends Model
 
     public function go_delete($id)
     {
-        $data = Perusahaan::where('id', $id)->delete();
+        $soft_delete = Perusahaan::select('soft_delete')->where('id', $id)->first()->soft_delete;
+        
+        if ($soft_delete) {
+            $data = Perusahaan::where('id', $id)->delete();
+            return $data;
+        }
+
+        $data = Perusahaan::where('id', $id)->update([
+            'soft_delete' => true
+        ]);
         return $data;
     }
 }
