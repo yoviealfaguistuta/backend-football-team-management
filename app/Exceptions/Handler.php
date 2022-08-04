@@ -43,8 +43,16 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (\Illuminate\Auth\AuthenticationException $e, $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'body' => [
+                        'message' => 'Ditolak - Silahkan login untuk mendapat akses',
+                    ],
+                    'status' => false,
+                    '__type' => 'unauthorized'
+                ], 401);
+            }
         });
     }
 }

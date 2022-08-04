@@ -31,4 +31,33 @@ class Perusahaan extends Model
         'nama',
         'soft_delete',
     ];
+
+
+    public function go_list()
+    {
+        $data = Perusahaan::paginate(10);
+        return $data;
+    }
+
+    public function go_create($input)
+    {
+        $data = Perusahaan::create([
+            'nama' => $input->nama
+        ]);
+        return $data;
+    }
+
+    public function go_update($input, $id)
+    {
+        $data = Perusahaan::where('id', $id)->update([
+            'nama' => $input->nama
+        ]);
+        return $data;
+    }
+
+    public function go_delete($id)
+    {
+        $data = Perusahaan::where('id', $id)->delete();
+        return $data;
+    }
 }

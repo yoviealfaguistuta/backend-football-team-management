@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
-    
     public function login(Request $request)
     {
         try {
