@@ -32,9 +32,12 @@ class Perusahaan extends Model
         'soft_delete',
     ];
 
-
     public function go_list() {
-        $data = Perusahaan::paginate(10);
+        $data = Perusahaan::select(
+            'id',
+            'nama',
+            'created_at'
+        )->where('perusahaan.soft_delete', false)->paginate(10);
         return $data;
     }
 

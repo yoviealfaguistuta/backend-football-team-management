@@ -40,7 +40,7 @@ class TimController extends Controller
             'id_perusahaan' => ['required', 'min:1', 'numeric'],
             'nama' => ['required', 'min:6', 'string'],
             'logo' => ['required', 'mimes:jpeg,jpg,png', 'max:10000'],
-            'tahun_berdiri' => ['required', 'integer', 'min:1900', 'max:'.(date('Y')+1), 'digits:4'],
+            'tahun_berdiri' => ['required', 'integer', 'min:1500', 'max:'.(date('Y')+1), 'digits:4'],
             'alamat_markas_tim' => ['required', 'min:6', 'string'],
             'kota_markas_tim' => ['required', 'min:6', 'max:100', 'string'],
         ]);
@@ -82,7 +82,7 @@ class TimController extends Controller
             'id_perusahaan' => ['required', 'min:1', 'numeric'],
             'nama' => ['required', 'min:6', 'string'],
             'logo' => ['required', 'mimes:jpeg,jpg,png', 'max:10000'],
-            'tahun_berdiri' => ['required', 'integer', 'min:1900', 'max:'.(date('Y')+1), 'digits:4'],
+            'tahun_berdiri' => ['required', 'integer', 'min:1500', 'max:'.(date('Y')+1), 'digits:4'],
             'alamat_markas_tim' => ['required', 'min:6', 'string'],
             'kota_markas_tim' => ['required', 'min:6', 'max:100', 'string'],
         ]);

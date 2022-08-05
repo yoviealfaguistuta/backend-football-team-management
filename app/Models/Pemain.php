@@ -40,17 +40,19 @@ class Pemain extends Model
     public function go_list() {
         
         $data = Pemain::select(
-            'pemain.id_tim',
+            'pemain.id',
             'pemain.nama',
             'pemain.tinggi_badan',
             'pemain.berat_badan',
             'pemain.posisi_pemain',
             'pemain.nomor_punggung',
             'pemain.created_at',
+            'tim.id as id_tim',
             'tim.nama as nama_tim',
+            'perusahaan.id as id_perusahaan',
             'perusahaan.nama as nama_perusahaan',
         )
-        ->where('pemain.soft_delete')
+        ->where('pemain.soft_delete', false)
         ->join('tim', 'tim.id', 'pemain.id_tim')
         ->join('perusahaan', 'perusahaan.id', 'tim.id_perusahaan')
         ->paginate(10);

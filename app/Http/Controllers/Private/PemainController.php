@@ -41,7 +41,7 @@ class PemainController extends Controller
             'nama' => ['required', 'min:6', 'string'],
             'tinggi_badan' => ['required', 'min:1', 'numeric'],
             'berat_badan' => ['required', 'min:1', 'numeric'],
-            'posisi_pemain' => ['required', 'min:1', 'max:1', 'numeric'],
+            'posisi_pemain' => ['required', 'min:1', 'max:4', 'numeric'],
             'nomor_punggung' => ['required', 'min:1', 'max:1000', 'numeric'],
         ]);
 
@@ -86,7 +86,7 @@ class PemainController extends Controller
             'nama' => ['required', 'min:6', 'string'],
             'tinggi_badan' => ['required', 'min:1', 'numeric'],
             'berat_badan' => ['required', 'min:1', 'numeric'],
-            'posisi_pemain' => ['required', 'min:1', 'max:1', 'numeric'],
+            'posisi_pemain' => ['required', 'min:1', 'max:4', 'numeric'],
             'nomor_punggung' => ['required', 'min:1', 'max:1000', 'numeric'],
         ]);
 

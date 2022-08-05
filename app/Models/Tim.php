@@ -40,16 +40,17 @@ class Tim extends Model
     public function go_list() {
         
         $data = Tim::select(
+            'tim.id',
             'tim.id_perusahaan',
+            'perusahaan.nama as nama_perusahaan',
             'tim.nama',
             'tim.logo',
             'tim.tahun_berdiri',
             'tim.alamat_markas_tim',
             'tim.kota_markas_tim',
             'tim.created_at',
-            'perusahaan.nama',
         )
-        ->where('soft_delete')
+        ->where('tim.soft_delete', false)
         ->join('perusahaan', 'perusahaan.id', 'tim.id_perusahaan')
         ->paginate(10);
 

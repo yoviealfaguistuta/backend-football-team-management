@@ -5,6 +5,7 @@ use App\Http\Controllers\Private\HasilPertandinganController;
 use App\Http\Controllers\Private\JadwalPertandinganController;
 use App\Http\Controllers\Private\PemainController;
 use App\Http\Controllers\Private\PerusahaanController;
+use App\Http\Controllers\Private\ReportController;
 use App\Http\Controllers\Private\TimController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -61,6 +62,10 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::post('', [HasilPertandinganController::class, 'create'])->name('admin.hasil-pertandingan.create');
         Route::post('{id}', [HasilPertandinganController::class, 'update'])->name('admin.hasil-pertandingan.update');
         Route::delete('{id}', [HasilPertandinganController::class, 'delete'])->name('admin.hasil-pertandingan.delete');
+    });
+
+    Route::prefix('report')->group(function () {
+        Route::get('{id_jadwal_pertandingan}', [ReportController::class, 'report'])->name('admin.report');
     });
    
 });

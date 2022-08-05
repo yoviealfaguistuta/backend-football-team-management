@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\HasilPertandingan;
 use App\Models\JadwalPertandingan;
 use App\Models\Pemain;
-use App\Models\Perusahaan;
 use App\Models\Tim;
 use Illuminate\Support\Facades\Validator;
 
@@ -56,16 +55,34 @@ class HasilPertandinganController extends Controller
             );
         }
 
-        // Cek jika terdapat tim dengan ID yang diberikan
+        // Cek jika terdapat jadwal pertandingan dengan ID yang diberikan
         $jadwal_pertandingan = $this->jadwal_pertandingan->go_exists($request->id_jadwal_pertandingan);
         if (!$jadwal_pertandingan) {
-            return $this->sendFailedResponse('Jadwal pertandingan tidak ditemukan', $__type);
+            return $this->sendValidationFailedResponse('Jadwal pertandingan tidak ditemukan', $__type);
         }
-        
+
+        // Cek tanggal jadwal pertandingan dengan tanggal saat data ingin dibuat 
+        $cek_waktu_pertandingan = $this->jadwal_pertandingan->go_check_match_date($request->id_jadwal_pertandingan);
+        if ($cek_waktu_pertandingan != 'valid') {
+            return $this->sendValidationFailedResponse($cek_waktu_pertandingan, $__type);
+        }
+
+        // Cek waktu di jadwal pertandingan dengan waktu yang dikirimkan 
+        $cek_waktu_pertandingan = $this->jadwal_pertandingan->go_check_match_time($request->id_jadwal_pertandingan, $request->waktu);
+        if ($cek_waktu_pertandingan != 'valid') {
+            return $this->sendValidationFailedResponse($cek_waktu_pertandingan, $__type);
+        }
+
         // Cek jika terdapat tim dengan ID yang diberikan
         $pemain = $this->pemain->go_exists($request->id_pemain);
         if (!$pemain) {
             return $this->sendFailedResponse('Pemain tidak ditemukan', $__type);
+        }
+
+         // Cek pemain berada di Tim Tuan Rumah atau Tamu dalam pertandingan
+        $tim_pemain = $this->hasil_pertandingan->go_check_player($request->id_jadwal_pertandingan, $request->id_pemain);
+        if (!$tim_pemain) {
+            return $this->sendFailedResponse('Pemain tidak berada di Tim Tuan Rumah ataupun Tim Tamu pada pertandingan ini', $__type);
         }
 
         // Eksekusi query dari HasilPertandingan "create" models
@@ -116,10 +133,22 @@ class HasilPertandinganController extends Controller
             return $this->sendFailedResponse('Pemain tidak ditemukan', $__type);
         }
 
+        // Cek waktu di jadwal pertandingan dengan waktu yang dikirimkan 
+        $cek_waktu_pertandingan = $this->jadwal_pertandingan->go_check_match_time($request->id_jadwal_pertandingan, $request->waktu);
+        if ($cek_waktu_pertandingan != 'valid') {
+            return $this->sendValidationFailedResponse($cek_waktu_pertandingan, $__type);
+        }
+
         // Cek jika terdapat hasil_pertandingan dengan ID yang diberikan
         $hasil_pertandingan = $this->hasil_pertandingan->go_exists($id);
         if (!$hasil_pertandingan) {
             return $this->sendFailedResponse('Jadwal pertandingan tidak ditemukan', $__type);
+        }
+
+        // Cek pemain berada di Tim Tuan Rumah atau Tamu dalam pertandingan
+        $tim_pemain = $this->hasil_pertandingan->go_check_player($request->id_jadwal_pertandingan, $request->id_pemain);
+        if (!$tim_pemain) {
+            return $this->sendFailedResponse('Pemain tidak berada di Tim Tuan Rumah ataupun Tim Tamu pada pertandingan ini', $__type);
         }
 
         // Eksekusi query dari HasilPertandingan "go_update" models
