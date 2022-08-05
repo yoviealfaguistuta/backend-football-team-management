@@ -23,7 +23,13 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="changelog.html" class="nav-link"><img src="{{ url('img') }}/side-nav/document2.png" alt="">Change Log</a>
+                <a target="_blank" download rel="noreferrer" href="{{ url('Ayo Indonesia - Software Developer Technical Test.postman_collection.json') }}" class="nav-link"><img src="{{ url('img') }}/side-nav/document.png" alt="">Postman Collection</a>
+            </li>
+            <li class="nav-item">
+                <a target="_blank" download rel="noreferrer" href="{{ url('https://github.com/yoviealfaguistuta/backend-football-team-management') }}" class="nav-link"><img src="{{ url('img') }}/side-nav/chat1.png" alt="">Github</a>
+            </li>
+            <li class="nav-item">
+                <a target="_blank" download rel="noreferrer" href="{{ url('http://yoviealfaguistuta.site/') }}" class="nav-link"><img src="{{ url('img') }}/side-nav/coding.png" alt="">Portofolio</a>
             </li>
         </ul>
     </div>

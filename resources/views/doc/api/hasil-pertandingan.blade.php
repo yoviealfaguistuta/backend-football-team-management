@@ -312,10 +312,12 @@
                                 <input type="checkbox" name="something" id="something" class="tab_switcher">
                                 <label for="something" class="tab-btn"><i class="far fa-moon"></i></label>
                             </div>
-                            <h6>On this page:</h6>
+                            <h6>Dalam Halaman Ini:</h6>
                             <nav class="list-unstyled doc_menu" id="navbar-example3">
-                                <a href="#toggle" class="nav-link">Toggle</a>
-                                <a href="#accordions" class="nav-link">Accordion</a>
+                                <a href="#list" class="nav-link">List</a>
+                                <a href="#create" class="nav-link">Create</a>
+                                <a href="#update" class="nav-link">Update</a>
+                                <a href="#delete" class="nav-link">Delete</a>
                             </nav>
                         </div><div id="mCSB_3_scrollbar_vertical" class="mCSB_scrollTools mCSB_3_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_3_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 223px; max-height: 240px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
                     </div>

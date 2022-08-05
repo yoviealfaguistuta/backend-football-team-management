@@ -1,4 +1,4 @@
-<article class="help_text" id="help">
+{{-- <article class="help_text" id="help">
     <h4 class="c_head">We're here to help!</h4>
     <div class="help_info">
         <div class="help_item">
@@ -55,4 +55,4 @@
             <p>Was this page helpful? <a href="#" class="h_btn">Yes</a><a href="#" class="h_btn">No</a></p>
         </div>
     </div>
-</article>
+</article> --}}

@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-lg-7 col-md-8">
                         <div id="post" class="documentation_info">
-                            <article class="documentation_body" id="documentation">
+                            <article class="documentation_body" id="getting-started">
                                 <div class="shortcode_title">
                                     <h1>Getting Started</h1>
                                     <p><span>Welcome to Ayo Indonesia - Software Developer Technical Test !</span> Sistem ini dibuat untuk memenuhi syarat untuk lolos ke tahap berikutnya:</p>
@@ -147,8 +147,7 @@
                             </div>
                             <h6>On this page:</h6>
                             <nav class="list-unstyled doc_menu" id="navbar-example3">
-                                <a href="#toggle" class="nav-link">Toggle</a>
-                                <a href="#accordions" class="nav-link">Accordion</a>
+                                <a href="#getting-started" class="nav-link">Getting Started</a>
                             </nav>
                         </div><div id="mCSB_3_scrollbar_vertical" class="mCSB_scrollTools mCSB_3_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_3_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 223px; max-height: 240px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
                     </div>

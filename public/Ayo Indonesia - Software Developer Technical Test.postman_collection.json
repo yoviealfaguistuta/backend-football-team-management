@@ -1,0 +1,3322 @@
+{
+	"info": {
+		"_postman_id": "cb97b8af-604e-4390-ba9e-6bb4a30f03c8",
+		"name": "Ayo Indonesia - Software Developer Technical Test",
+		"description": "Sistem ini dibuat untuk memenuhi syarat untuk lolos ke tahap berikutnya.\n\n* * *\n\nStudi Kasus:\n\nPerusahaan XYZ merupakan sebuah perusahaan yang menaungi beberapa tim sepakbola amatir di  \nIndonesia, perusahaan ini berencana membangun sebuah aplikasi berbasis android sederhana untuk  \nmengelola tim-tim sepakbola yang dinaunginya. Saat ini pencatatan data tim sepak bola yang dimiliki  \noleh perusahaan XYZ masih dilakukan secara manual. Perusahaan XYZ meminta anda untuk  \nmembangun sebuah sistem backend API Endpoint menggunakan format respon JSON agar nantinya  \ndapat dipakai oleh aplikasi android yang sedang dikembangkan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11117494"
+	},
+	"item": [
+		{
+			"name": "Perusahaan",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/perusahaan",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"perusahaan"
+							]
+						},
+						"description": "Menampilkan daftar Perusahaan yang terdapat pada tabel \"perusahaan\""
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/perusahaan",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"perusahaan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:20:26 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:20:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 1,\n                \"nama\": \"Ayo Indonesia\",\n                \"created_at\": \"2022-08-05T06:32:46.000000Z\"\n            },\n            {\n                \"id\": 2,\n                \"nama\": \"Gojek\",\n                \"created_at\": \"2022-08-05T06:32:46.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"nama\": \"Tokopedia\",\n                \"created_at\": \"2022-08-05T06:32:46.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/perusahaan?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/perusahaan?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Sebelumnya\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/perusahaan?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Berikutnya &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/perusahaan\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 3,\n        \"total\": 3\n    },\n    \"status\": true,\n    \"__type\": \"perusahaan_list\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "Ayo Indonesia",
+									"description": "Nama Perusahaan - ['required', 'min:6', 'string']",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/perusahaan",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"perusahaan"
+							]
+						},
+						"description": "Menambahkan data Perusahaan kedalam tabel \"perusahaan\""
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nama",
+											"value": "Ayo Indonesia",
+											"description": "Nama Perusahaan - ['required', 'min:6', 'string']",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/perusahaan",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"perusahaan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:21:49 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:21:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"nama\": \"Ayo Indonesia\",\n        \"updated_at\": \"2022-08-05T07:21:49.000000Z\",\n        \"created_at\": \"2022-08-05T07:21:49.000000Z\",\n        \"id\": 7\n    },\n    \"status\": true,\n    \"__type\": \"perusahaan_create\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "Ayo Indonesia",
+									"description": "Nama Perusahaan - ['required', 'min:6', 'string']",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/perusahaan/1",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"perusahaan",
+								"1"
+							]
+						},
+						"description": "Memperbarui data Perusahaan yang telah ada di dalam tabel \"perusahaan\" dengan yang baru"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nama",
+											"value": "Ayo Indonesia",
+											"description": "Nama Perusahaan - ['required', 'min:6', 'string']",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/perusahaan/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"perusahaan",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:23:43 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:23:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": 1,\n    \"status\": true,\n    \"__type\": \"perusahaan_update\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/perusahaan/1",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"perusahaan",
+								"1"
+							]
+						},
+						"description": "Memperbarui \"soft_delete\" menjadi \"true\", jika \"soft_delete\" sudah berstatus \"true\" maka data akan dihapus permanen"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/perusahaan/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"perusahaan",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:23:53 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:23:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": 1,\n    \"status\": true,\n    \"__type\": \"perusahaan_delete\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Perusahaan berisi Endpoint untuk mengelola tabel \"perusahaan\". Tabel ini berisi data Perusahaan yang menyelenggarakan sebuah event pertandingan\n\n* * *",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Tim",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/tim",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"tim"
+							]
+						},
+						"description": "Menampilkan daftar Tim yang terdapat pada tabel \"tim\""
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tim",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tim"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:35:00 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:35:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 2,\n                \"id_perusahaan\": 2,\n                \"nama_perusahaan\": \"Gojek\",\n                \"nama\": \"Manchester City\",\n                \"logo\": \"/assets/images/data/1659684897_Manchester_City_FC_badge.svg.png\",\n                \"tahun_berdiri\": \"1880\",\n                \"alamat_markas_tim\": \"Gorton\",\n                \"kota_markas_tim\": \"Manchester, United Kingdom\",\n                \"created_at\": \"2022-08-05T07:28:37.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"id_perusahaan\": 1,\n                \"nama_perusahaan\": \"Ayo Indonesia\",\n                \"nama\": \"Manchester United\",\n                \"logo\": \"/assets/images/data/1659684690_1200px-Manchester_United_FC_crest.svg.png\",\n                \"tahun_berdiri\": \"1878\",\n                \"alamat_markas_tim\": \"Newton Health\",\n                \"kota_markas_tim\": \"Manchester, United Kingdom\",\n                \"created_at\": \"2022-08-05T07:31:30.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/tim?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/tim?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Sebelumnya\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/tim?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Berikutnya &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/tim\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 2,\n        \"total\": 2\n    },\n    \"status\": true,\n    \"__type\": \"tim_list\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_perusahaan",
+									"value": "1",
+									"description": "ID Perusahaan - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "Manchester United",
+									"description": "Nama - ['required', 'min:6', 'string']",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"description": "Logo - ['required', 'mimes:jpeg,jpg,png', 'max:10000']",
+									"type": "file",
+									"src": "/D:/ad/1200px-Manchester_United_FC_crest.svg.png"
+								},
+								{
+									"key": "tahun_berdiri",
+									"value": "1878",
+									"description": "Tahun Berdiri - ['required', 'integer', 'min:1900', 'max:'.(date('Y')+1), 'digits:4']",
+									"type": "text"
+								},
+								{
+									"key": "alamat_markas_tim",
+									"value": "Newton Health",
+									"description": "Alamat Markas Tim - ['required', 'min:6', 'string']",
+									"type": "text"
+								},
+								{
+									"key": "kota_markas_tim",
+									"value": "Manchester, United Kingdom",
+									"description": "Kota Markas Tim - ['required', 'min:6', 'max:100', 'string']",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/tim",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"tim"
+							]
+						},
+						"description": "Menambahkan data Tim kedalam tabel \"tim\""
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_perusahaan",
+											"value": "1",
+											"description": "ID Perusahaan - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "nama",
+											"value": "Manchester United",
+											"description": "Nama - ['required', 'min:6', 'string']",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"description": "Logo - ['required', 'mimes:jpeg,jpg,png', 'max:10000']",
+											"type": "file",
+											"src": "/D:/ad/1200px-Manchester_United_FC_crest.svg.png"
+										},
+										{
+											"key": "tahun_berdiri",
+											"value": "1878",
+											"description": "Tahun Berdiri - ['required', 'integer', 'min:1900', 'max:'.(date('Y')+1), 'digits:4']",
+											"type": "text"
+										},
+										{
+											"key": "alamat_markas_tim",
+											"value": "Newton Health",
+											"description": "Alamat Markas Tim - ['required', 'min:6', 'string']",
+											"type": "text"
+										},
+										{
+											"key": "kota_markas_tim",
+											"value": "Manchester, United Kingdom",
+											"description": "Kota Markas Tim - ['required', 'min:6', 'max:100', 'string']",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tim",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tim"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:31:30 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:31:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"id_perusahaan\": \"1\",\n        \"nama\": \"Manchester United\",\n        \"logo\": \"/assets/images/data/1659684690_1200px-Manchester_United_FC_crest.svg.png\",\n        \"tahun_berdiri\": \"1878\",\n        \"alamat_markas_tim\": \"Newton Health\",\n        \"kota_markas_tim\": \"Manchester, United Kingdom\",\n        \"updated_at\": \"2022-08-05T07:31:30.000000Z\",\n        \"created_at\": \"2022-08-05T07:31:30.000000Z\",\n        \"id\": 3\n    },\n    \"status\": true,\n    \"__type\": \"tim_create\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_perusahaan",
+									"value": "2",
+									"description": "ID Perusahaan - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "Manchester City",
+									"description": "Nama - ['required', 'min:6', 'string']",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"description": "Logo - ['required', 'mimes:jpeg,jpg,png', 'max:10000']",
+									"type": "file",
+									"src": "/D:/ad/Manchester_City_FC_badge.svg.png"
+								},
+								{
+									"key": "tahun_berdiri",
+									"value": "1880",
+									"description": "Tahun Berdiri - ['required', 'integer', 'min:1900', 'max:'.(date('Y')+1), 'digits:4']",
+									"type": "text"
+								},
+								{
+									"key": "alamat_markas_tim",
+									"value": "Gorton",
+									"description": "Alamat Markas Tim - ['required', 'min:6', 'string']",
+									"type": "text"
+								},
+								{
+									"key": "kota_markas_tim",
+									"value": "Manchester, United Kingdom",
+									"description": "Kota Markas Tim - ['required', 'min:6', 'max:100', 'string']",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/tim/2",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"tim",
+								"2"
+							]
+						},
+						"description": "Memperbarui data Tim yang telah ada di dalam tabel \"tim\" dengan yang baru"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_perusahaan",
+											"value": "2",
+											"description": "ID Perusahaan - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "nama",
+											"value": "Manchester City",
+											"description": "Nama - ['required', 'min:6', 'string']",
+											"type": "text"
+										},
+										{
+											"key": "logo",
+											"description": "Logo - ['required', 'mimes:jpeg,jpg,png', 'max:10000']",
+											"type": "file",
+											"src": "/D:/ad/Manchester_City_FC_badge.svg.png"
+										},
+										{
+											"key": "tahun_berdiri",
+											"value": "1880",
+											"description": "Tahun Berdiri - ['required', 'integer', 'min:1900', 'max:'.(date('Y')+1), 'digits:4']",
+											"type": "text"
+										},
+										{
+											"key": "alamat_markas_tim",
+											"value": "Gorton",
+											"description": "Alamat Markas Tim - ['required', 'min:6', 'string']",
+											"type": "text"
+										},
+										{
+											"key": "kota_markas_tim",
+											"value": "Manchester, United Kingdom",
+											"description": "Kota Markas Tim - ['required', 'min:6', 'max:100', 'string']",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tim/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tim",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:34:57 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:34:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": 1,\n    \"status\": true,\n    \"__type\": \"tim_update\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "test12412",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/tim/4",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"tim",
+								"4"
+							]
+						},
+						"description": "Memperbarui \"soft_delete\" menjadi \"true\", jika \"soft_delete\" sudah berstatus \"true\" maka data akan dihapus permanen"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nama",
+											"value": "test12412",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tim/4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tim",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:36:00 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:36:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": 1,\n    \"status\": true,\n    \"__type\": \"tim_delete\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Tim berisi Endpoint untuk mengelola tabel \"tim\". Tabel ini berisi data Tim yang berada dalam sebuah Perusahaan\n\n* * *\n\n**Soal Nomor 1**\n\nPengolaan informasi tim sepak bola yang bernaung dibawah perusahaan XYZ. Admin  \nperusahaan harus dapat menambahkan, menghapus, ataupun mengubah informasi tim.  \nInformasi tim yang perlu dicatat dalam aplikasi adalah: nama tim, logo tim, tahun berdiri,  \nalamat markas tim, kota markas tim",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Pemain",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/pemain",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"pemain"
+							]
+						},
+						"description": "Menampilkan daftar Pemain yang terdapat pada tabel \"pemain\""
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/pemain",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"pemain"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:44:20 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:44:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 44,\n                \"nama\": \"Luke Shaw\",\n                \"tinggi_badan\": \"1.78\",\n                \"berat_badan\": \"66\",\n                \"posisi_pemain\": \"2\",\n                \"nomor_punggung\": 23,\n                \"created_at\": \"2022-08-05T07:42:55.000000Z\",\n                \"id_tim\": 3,\n                \"nama_tim\": \"Manchester United\",\n                \"id_perusahaan\": 1,\n                \"nama_perusahaan\": \"Ayo Indonesia\"\n            },\n            {\n                \"id\": 45,\n                \"nama\": \"David de Gea\",\n                \"tinggi_badan\": \"1.89\",\n                \"berat_badan\": \"68\",\n                \"posisi_pemain\": \"4\",\n                \"nomor_punggung\": 1,\n                \"created_at\": \"2022-08-05T07:43:57.000000Z\",\n                \"id_tim\": 3,\n                \"nama_tim\": \"Manchester United\",\n                \"id_perusahaan\": 1,\n                \"nama_perusahaan\": \"Ayo Indonesia\"\n            },\n            {\n                \"id\": 42,\n                \"nama\": \"Kevin De Bruyne\",\n                \"tinggi_badan\": \"1.81\",\n                \"berat_badan\": \"63\",\n                \"posisi_pemain\": \"1\",\n                \"nomor_punggung\": 17,\n                \"created_at\": \"2022-08-05T07:39:02.000000Z\",\n                \"id_tim\": 2,\n                \"nama_tim\": \"Manchester City\",\n                \"id_perusahaan\": 2,\n                \"nama_perusahaan\": \"Gojek\"\n            },\n            {\n                \"id\": 43,\n                \"nama\": \"John Stones\",\n                \"tinggi_badan\": \"1.88\",\n                \"berat_badan\": \"71\",\n                \"posisi_pemain\": \"3\",\n                \"nomor_punggung\": 5,\n                \"created_at\": \"2022-08-05T07:41:37.000000Z\",\n                \"id_tim\": 2,\n                \"nama_tim\": \"Manchester City\",\n                \"id_perusahaan\": 2,\n                \"nama_perusahaan\": \"Gojek\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/pemain?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/pemain?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Sebelumnya\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/pemain?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Berikutnya &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/pemain\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 4,\n        \"total\": 4\n    },\n    \"status\": true,\n    \"__type\": \"pemain_list\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_tim",
+									"value": "3",
+									"description": "ID Tim - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "David de Gea",
+									"description": "Nama - ['required', 'min:6', 'string']",
+									"type": "text"
+								},
+								{
+									"key": "tinggi_badan",
+									"value": "1.89",
+									"description": "Tinggi Badan - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "berat_badan",
+									"value": "68",
+									"description": "Berat Badan - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "posisi_pemain",
+									"value": "4",
+									"description": "Posisi Pemain 1 = penyerang, 2 = gelandang, 3 = bertahan, 4 = penjaga gawang - ['required', 'min:1', 'max:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "nomor_punggung",
+									"value": "1",
+									"description": "Nomor Punggung - ['required', 'min:1', 'max:1000', 'numeric']",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/pemain",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"pemain"
+							]
+						},
+						"description": "Menambahkan data Pemain kedalam tabel \"pemain\""
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_tim",
+											"value": "2",
+											"description": "ID Tim - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "nama",
+											"value": "Kevin De Bruyne",
+											"description": "Nama - ['required', 'min:6', 'string']",
+											"type": "text"
+										},
+										{
+											"key": "tinggi_badan",
+											"value": "1.81",
+											"description": "Tinggi Badan - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "berat_badan",
+											"value": "63",
+											"description": "Berat Badan - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "posisi_pemain",
+											"value": "1",
+											"description": "Posisi Pemain 1 = penyerang, 2 = gelandang, 3 = bertahan, 4 = penjaga gawang - ['required', 'min:1', 'max:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "nomor_punggung",
+											"value": "17",
+											"description": "Nomor Punggung - ['required', 'min:1', 'max:1000', 'numeric']",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/pemain",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"pemain"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:39:02 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:39:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"id_tim\": \"2\",\n        \"nama\": \"Kevin De Bruyne\",\n        \"tinggi_badan\": \"1.81\",\n        \"berat_badan\": \"63\",\n        \"posisi_pemain\": \"1\",\n        \"nomor_punggung\": \"17\",\n        \"updated_at\": \"2022-08-05T07:39:02.000000Z\",\n        \"created_at\": \"2022-08-05T07:39:02.000000Z\",\n        \"id\": 42\n    },\n    \"status\": true,\n    \"__type\": \"pemain_create\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_tim",
+									"value": "3",
+									"description": "ID Tim - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "nama",
+									"value": "David de Gea",
+									"description": "Nama - ['required', 'min:6', 'string']",
+									"type": "text"
+								},
+								{
+									"key": "tinggi_badan",
+									"value": "1.89",
+									"description": "Tinggi Badan - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "berat_badan",
+									"value": "68",
+									"description": "Berat Badan - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "posisi_pemain",
+									"value": "4",
+									"description": "Posisi Pemain 1 = penyerang, 2 = gelandang, 3 = bertahan, 4 = penjaga gawang - ['required', 'min:1', 'max:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "nomor_punggung",
+									"value": "1",
+									"description": "Nomor Punggung - ['required', 'min:1', 'max:1000', 'numeric']",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/pemain/45",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"pemain",
+								"45"
+							]
+						},
+						"description": "Memperbarui data Pemain yang telah ada di dalam tabel \"pemain\" dengan yang baru"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_tim",
+											"value": "3",
+											"description": "ID Tim - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "nama",
+											"value": "David de Gea",
+											"description": "Nama - ['required', 'min:6', 'string']",
+											"type": "text"
+										},
+										{
+											"key": "tinggi_badan",
+											"value": "1.89",
+											"description": "Tinggi Badan - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "berat_badan",
+											"value": "68",
+											"description": "Berat Badan - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "posisi_pemain",
+											"value": "4",
+											"description": "Posisi Pemain 1 = penyerang, 2 = gelandang, 3 = bertahan, 4 = penjaga gawang - ['required', 'min:1', 'max:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "nomor_punggung",
+											"value": "1",
+											"description": "Nomor Punggung - ['required', 'min:1', 'max:1000', 'numeric']",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/pemain/45",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"pemain",
+										"45"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:45:38 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:45:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": 1,\n    \"status\": true,\n    \"__type\": \"pemain_update\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "test12412",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/pemain/46",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"pemain",
+								"46"
+							]
+						},
+						"description": "Memperbarui \"soft_delete\" menjadi \"true\", jika \"soft_delete\" sudah berstatus \"true\" maka data akan dihapus permanen"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nama",
+											"value": "test12412",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/pemain/46",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"pemain",
+										"46"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:46:06 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:46:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "55"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": 1,\n    \"status\": true,\n    \"__type\": \"pemain_delete\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Pemain berisi Endpoint untuk mengelola tabel \"pemain\". Tabel ini berisi data diri pemain yang berada dalam sebuah Tim\n\n* * *\n\n**Soal Nomor 2**\n\nPengelolaan informasi pemain tim dengan aturan 1 pemain dapat bernaung hanya pada 1 tim  \nsepak bola sedangkan 1 tim sepak bola dapat menaungi banyak pemain. Informasi tim yang  \nperlu dicatat dalam aplikasi adalah: nama pemain, tinggi badan, berat badan, posisi pemain  \n(penyerang, gelandang, bertahan, penjaga gawang), nomor punggung. Sebagai catatan,  \nnomor punggung antar pemain dalam satu tim tidak boleh sama.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Jadwal Pertandingan",
+			"item": [
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/jadwal-pertandingan",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"jadwal-pertandingan"
+							]
+						},
+						"description": "Menampilkan daftar Jadwal Pertandingan yang terdapat pada tabel \"jadwal_pertandingan\""
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/jadwal-pertandingan",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"jadwal-pertandingan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:48:05 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:48:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 4,\n                \"tanggal\": \"2022-08-05\",\n                \"waktu\": \"15:00\",\n                \"id_tim_tuan_rumah\": 3,\n                \"nama_tim_tuan_rumah\": \"Manchester United\",\n                \"logo_tim_tuan_rumah\": \"/assets/images/data/1659684690_1200px-Manchester_United_FC_crest.svg.png\",\n                \"id_tim_tamu\": 2,\n                \"nama_tim_tamu\": \"Manchester City\",\n                \"logo_tim_tamu\": \"/assets/images/data/1659684897_Manchester_City_FC_badge.svg.png\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/jadwal-pertandingan?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/jadwal-pertandingan?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Sebelumnya\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/jadwal-pertandingan?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Berikutnya &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/jadwal-pertandingan\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 1,\n        \"total\": 1\n    },\n    \"status\": true,\n    \"__type\": \"jadwal_pertandingan_list\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_tim_tuan_rumah",
+									"value": "3",
+									"description": "ID Tim Tuan Rumah - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "id_tim_tamu",
+									"value": "2",
+									"description": "ID Tim Tamu - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "tanggal",
+									"value": "2022-08-05",
+									"description": "Tanggal - ['required', 'date'] - (Y-m-d)",
+									"type": "text"
+								},
+								{
+									"key": "waktu",
+									"value": "15:00",
+									"description": "Waktu - ['required', 'string'] - (h:I)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/jadwal-pertandingan",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"jadwal-pertandingan"
+							]
+						},
+						"description": "Menambahkan data Jadwal Pertandingan kedalam tabel \"jadwal_pertandingan\""
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_tim_tuan_rumah",
+											"value": "3",
+											"description": "ID Tim Tuan Rumah - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "id_tim_tamu",
+											"value": "2",
+											"description": "ID Tim Tamu - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "tanggal",
+											"value": "2022-08-05",
+											"description": "Tanggal - ['required', 'date'] - (Y-m-d)",
+											"type": "text"
+										},
+										{
+											"key": "waktu",
+											"value": "15:00",
+											"description": "Waktu - ['required', 'string'] - (h:I)",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/jadwal-pertandingan",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"jadwal-pertandingan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:47:32 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:47:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"id_tim_tuan_rumah\": \"3\",\n        \"id_tim_tamu\": \"2\",\n        \"tanggal\": \"2022-08-05\",\n        \"waktu\": \"15:00\",\n        \"updated_at\": \"2022-08-05T07:47:32.000000Z\",\n        \"created_at\": \"2022-08-05T07:47:32.000000Z\",\n        \"id\": 4\n    },\n    \"status\": true,\n    \"__type\": \"jadwal_pertandingan_create\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_tim_tuan_rumah",
+									"value": "3",
+									"description": "ID Tim Tuan Rumah - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "id_tim_tamu",
+									"value": "2",
+									"description": "ID Tim Tamu - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "tanggal",
+									"value": "2022-08-05",
+									"description": "Tanggal - ['required', 'date']",
+									"type": "text"
+								},
+								{
+									"key": "waktu",
+									"value": "15:00",
+									"description": "Waktu - ['required', 'string']",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/jadwal-pertandingan/4",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"jadwal-pertandingan",
+								"4"
+							]
+						},
+						"description": "Memperbarui data Jadwal Pertandingan yang telah ada di dalam tabel \"jadwal_pertandingan\" dengan yang baru"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_tim_tuan_rumah",
+											"value": "3",
+											"description": "ID Tim Tuan Rumah - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "id_tim_tamu",
+											"value": "2",
+											"description": "ID Tim Tamu - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "tanggal",
+											"value": "2022-08-05",
+											"description": "Tanggal - ['required', 'date']",
+											"type": "text"
+										},
+										{
+											"key": "waktu",
+											"value": "15:00",
+											"description": "Waktu - ['required', 'string']",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/jadwal-pertandingan/4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"jadwal-pertandingan",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:49:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:49:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": 1,\n    \"status\": true,\n    \"__type\": \"jadwal_pertandingan_update\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "test12412",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/jadwal-pertandingan/5",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"jadwal-pertandingan",
+								"5"
+							]
+						},
+						"description": "Memperbarui \"soft_delete\" menjadi \"true\", jika \"soft_delete\" sudah berstatus \"true\" maka data akan dihapus permanen"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nama",
+											"value": "test12412",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/jadwal-pertandingan/5",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"jadwal-pertandingan",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:50:05 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:50:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": 1,\n    \"status\": true,\n    \"__type\": \"jadwal_pertandingan_delete\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Jadwal Pertandingan berisi Endpoint untuk mengelola tabel \"jadwal_pertandingan\". Tabel ini berisi jadwal pertandingan yang akan atau telah diselenggarakan oleh kedua Tim.\n\n* * *\n\n**Soal Nomor 3**\n\nPengelolaan jadwal pertandingan antar tim. Admin perusahaan harus dapat menambahkan  \njadwal pertandingan antar tim, informasi jadwal pertandingan yang harus dicatat dalam  \naplikasi adalah: tanggal pertandingan, waktu pertandingan, tim yang bertindak sebagai tuan  \nrumah, tim yang bertindak sebagai tamu.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Hasil Pertandingan",
+			"item": [
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/hasil-pertandingan",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"hasil-pertandingan"
+							]
+						},
+						"description": "Menampilkan daftar Hasil Pertandingan yang terdapat pada tabel \"hasil_pertandingan\""
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/hasil-pertandingan",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hasil-pertandingan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 09:00:17 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 09:00:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id_jadwal_pertandingan\": 4,\n                \"id_tim_tuan_rumah\": 3,\n                \"nama_tim_tuan_rumah\": \"Manchester United\",\n                \"id_tim_tamu\": 2,\n                \"nama_tim_tamu\": \"Manchester City\",\n                \"logo_tim_tuan_rumah\": \"/assets/images/data/1659684690_1200px-Manchester_United_FC_crest.svg.png\",\n                \"logo_tim_tamu\": \"/assets/images/data/1659684897_Manchester_City_FC_badge.svg.png\",\n                \"hasil\": [\n                    {\n                        \"id\": 13,\n                        \"nama_pemain\": \"Kevin De Bruyne\",\n                        \"tipe\": \"1\",\n                        \"waktu\": \"12:14\",\n                        \"id_tim_pemain\": 2,\n                        \"nomor_punggung_pemain\": 17,\n                        \"nama_tim_pemain\": \"Manchester City\",\n                        \"status_tim\": \"Tamu\"\n                    },\n                    {\n                        \"id\": 12,\n                        \"nama_pemain\": \"Kevin De Bruyne\",\n                        \"tipe\": \"1\",\n                        \"waktu\": \"15:00\",\n                        \"id_tim_pemain\": 2,\n                        \"nomor_punggung_pemain\": 17,\n                        \"nama_tim_pemain\": \"Manchester City\",\n                        \"status_tim\": \"Tamu\"\n                    },\n                    {\n                        \"id\": 14,\n                        \"nama_pemain\": \"Kevin De Bruyne\",\n                        \"tipe\": \"1\",\n                        \"waktu\": \"15:20\",\n                        \"id_tim_pemain\": 2,\n                        \"nomor_punggung_pemain\": 17,\n                        \"nama_tim_pemain\": \"Manchester City\",\n                        \"status_tim\": \"Tamu\"\n                    },\n                    {\n                        \"id\": 15,\n                        \"nama_pemain\": \"Kevin De Bruyne\",\n                        \"tipe\": \"1\",\n                        \"waktu\": \"12:20\",\n                        \"id_tim_pemain\": 2,\n                        \"nomor_punggung_pemain\": 17,\n                        \"nama_tim_pemain\": \"Manchester City\",\n                        \"status_tim\": \"Tamu\"\n                    },\n                    {\n                        \"id\": 16,\n                        \"nama_pemain\": \"Kevin De Bruyne\",\n                        \"tipe\": \"1\",\n                        \"waktu\": \"12:20\",\n                        \"id_tim_pemain\": 2,\n                        \"nomor_punggung_pemain\": 17,\n                        \"nama_tim_pemain\": \"Manchester City\",\n                        \"status_tim\": \"Tamu\"\n                    },\n                    {\n                        \"id\": 17,\n                        \"nama_pemain\": \"Kevin De Bruyne\",\n                        \"tipe\": \"1\",\n                        \"waktu\": \"12:20\",\n                        \"id_tim_pemain\": 2,\n                        \"nomor_punggung_pemain\": 17,\n                        \"nama_tim_pemain\": \"Manchester City\",\n                        \"status_tim\": \"Tamu\"\n                    },\n                    {\n                        \"id\": 18,\n                        \"nama_pemain\": \"Kevin De Bruyne\",\n                        \"tipe\": \"1\",\n                        \"waktu\": \"12:20\",\n                        \"id_tim_pemain\": 2,\n                        \"nomor_punggung_pemain\": 17,\n                        \"nama_tim_pemain\": \"Manchester City\",\n                        \"status_tim\": \"Tamu\"\n                    },\n                    {\n                        \"id\": 19,\n                        \"nama_pemain\": \"Kevin De Bruyne\",\n                        \"tipe\": \"1\",\n                        \"waktu\": \"17:20\",\n                        \"id_tim_pemain\": 2,\n                        \"nomor_punggung_pemain\": 17,\n                        \"nama_tim_pemain\": \"Manchester City\",\n                        \"status_tim\": \"Tamu\"\n                    }\n                ],\n                \"skor_tuan_rumah\": 0,\n                \"skor_tamu\": 8,\n                \"kartu_kuning\": 0,\n                \"kartu_merah\": 0,\n                \"total_skor_akhir\": \"Skor Tim Tuan Rumah: 0 - Skor Tim Tamu: 8\"\n            },\n            {\n                \"id_jadwal_pertandingan\": 5,\n                \"id_tim_tuan_rumah\": 3,\n                \"nama_tim_tuan_rumah\": \"Manchester United\",\n                \"id_tim_tamu\": 2,\n                \"nama_tim_tamu\": \"Manchester City\",\n                \"logo_tim_tuan_rumah\": \"/assets/images/data/1659684690_1200px-Manchester_United_FC_crest.svg.png\",\n                \"logo_tim_tamu\": \"/assets/images/data/1659684897_Manchester_City_FC_badge.svg.png\",\n                \"hasil\": [\n                    {\n                        \"id\": 20,\n                        \"nama_pemain\": \"Kevin De Bruyne\",\n                        \"tipe\": \"1\",\n                        \"waktu\": \"15:23\",\n                        \"id_tim_pemain\": 2,\n                        \"nomor_punggung_pemain\": 17,\n                        \"nama_tim_pemain\": \"Manchester City\",\n                        \"status_tim\": \"Tamu\"\n                    }\n                ],\n                \"skor_tuan_rumah\": 0,\n                \"skor_tamu\": 1,\n                \"kartu_kuning\": 0,\n                \"kartu_merah\": 0,\n                \"total_skor_akhir\": \"Skor Tim Tuan Rumah: 0 - Skor Tim Tamu: 1\"\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/hasil-pertandingan?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/hasil-pertandingan?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Sebelumnya\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/hasil-pertandingan?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Berikutnya &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/hasil-pertandingan\",\n        \"per_page\": 10,\n        \"prev_page_url\": null,\n        \"to\": 2,\n        \"total\": 2\n    },\n    \"status\": true,\n    \"__type\": \"hasil_pertandingan_list\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_jadwal_pertandingan",
+									"value": "4",
+									"description": "ID Jadwal Pertandingan - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "id_pemain",
+									"value": "4",
+									"description": "ID Pemain - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "tipe",
+									"value": "1",
+									"description": "Tipe - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "waktu",
+									"value": "15:20",
+									"description": "Waktu - ['required', 'date_format:H:i']",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/hasil-pertandingan",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"hasil-pertandingan"
+							]
+						},
+						"description": "Menambahkan data Hasil Pertandingan kedalam tabel \"hasil_pertandingan\"\n\nDalam pembuatan data ini, tanggal sekarang harus sesuai dengan tanggal pada jadwal pertandingan yang telah dibuat.\n\nWaktu yang dikirim tidak boleh lebih dari 300 menit dari waktu yang ada pada jadwal pertandingan.\n\nWaktu yang dikirim juga tidak boleh kurang dari waktu pada jadwal pertandingan."
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_jadwal_pertandingan",
+											"value": "4",
+											"description": "ID Jadwal Pertandingan - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "id_pemain",
+											"value": "42",
+											"description": "ID Pemain - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "tipe",
+											"value": "1",
+											"description": "Tipe - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "waktu",
+											"value": "15:14",
+											"description": "Waktu - ['required', 'date_format:H:i']",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/hasil-pertandingan",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hasil-pertandingan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:51:05 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 07:51:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"id_jadwal_pertandingan\": \"4\",\n        \"id_pemain\": \"42\",\n        \"tipe\": \"1\",\n        \"waktu\": \"15:14\",\n        \"updated_at\": \"2022-08-05T07:51:05.000000Z\",\n        \"created_at\": \"2022-08-05T07:51:05.000000Z\",\n        \"id\": 12\n    },\n    \"status\": true,\n    \"__type\": \"hasil_pertandingan_create\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_jadwal_pertandingan",
+									"value": "5",
+									"description": "ID Jadwal Pertandingan - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "id_pemain",
+									"value": "42",
+									"description": "ID Pemain - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "tipe",
+									"value": "1",
+									"description": "Tipe 1 = mencetak gol, 2 = mendapat kartu kuning, 3 = mendapat kartu merah - ['required', 'min:1', 'numeric']",
+									"type": "text"
+								},
+								{
+									"key": "waktu",
+									"value": "15:23",
+									"description": "Waktu - ['required', 'date_format:H:i']",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/hasil-pertandingan/20",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"hasil-pertandingan",
+								"20"
+							]
+						},
+						"description": "Memperbarui data Hasil Pertandingan yang telah ada di dalam tabel \"hasil_pertandingan\" dengan yang baru"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_jadwal_pertandingan",
+											"value": "5",
+											"description": "ID Jadwal Pertandingan - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "id_pemain",
+											"value": "42",
+											"description": "ID Pemain - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "tipe",
+											"value": "1",
+											"description": "Tipe 1 = mencetak gol, 2 = mendapat kartu kuning, 3 = mendapat kartu merah - ['required', 'min:1', 'numeric']",
+											"type": "text"
+										},
+										{
+											"key": "waktu",
+											"value": "15:23",
+											"description": "Waktu - ['required', 'date_format:H:i']",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/hasil-pertandingan/20",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"hasil-pertandingan",
+										"20"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 08:59:48 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 08:59:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": 1,\n    \"status\": true,\n    \"__type\": \"hasil_pertandingan_update\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama",
+									"value": "test12412",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/pemain/46",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"pemain",
+								"46"
+							]
+						},
+						"description": "Memperbarui \"soft_delete\" menjadi \"true\", jika \"soft_delete\" sudah berstatus \"true\" maka data akan dihapus permanen"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nama",
+											"value": "test12412",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/pemain/46",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"pemain",
+										"46"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 08:59:57 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 08:59:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": 1,\n    \"status\": true,\n    \"__type\": \"pemain_delete\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Hasil Pertandingan berisi Endpoint untuk mengelola tabel \"hasil_pertandingan\". Tabel ini berisi aktifitas pemain selama pertandingan berlangsung.\n\n* * *\n\n**Soal Nomor 4**\n\nAdmin perusahaan juga dapat melaporkan hasil dari pertandingan yang sudah dilakukan, hasil  \npertandingan tersebut berupa total skor akhir, pemain yang mencetak gol yang terjadi, serta  \nwaktu terjadinya gol tersebut.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_PRIVATE_URL}}/report/4",
+							"host": [
+								"{{BASE_PRIVATE_URL}}"
+							],
+							"path": [
+								"report",
+								"4"
+							]
+						},
+						"description": "Menampilkan rangkuman data dari beberapa tabel dengan informasi yang dibutuhkan"
+					},
+					"response": [
+						{
+							"name": "Contoh Response (200)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/report/4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"report",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 09:09:53 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Aug 2022 09:09:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"body\": {\n        \"id_jadwal_pertandingan\": 4,\n        \"id_tim_tuan_rumah\": 3,\n        \"id_tim_tamu\": 2,\n        \"nama_tim_tuan_rumah\": \"Manchester United\",\n        \"nama_tim_tamu\": \"Manchester City\",\n        \"logo_tim_tuan_rumah\": \"/assets/images/data/1659684690_1200px-Manchester_United_FC_crest.svg.png\",\n        \"logo_tim_tamu\": \"/assets/images/data/1659684897_Manchester_City_FC_badge.svg.png\",\n        \"hasil\": [\n            {\n                \"id_jadwal_pertandingan\": 4,\n                \"nama_pemain\": \"Kevin De Bruyne\",\n                \"tipe\": \"1\",\n                \"waktu\": \"12:14\",\n                \"id_tim_pemain\": 2,\n                \"nomor_punggung_pemain\": 17,\n                \"tim\": \"Manchester City\",\n                \"status_tim\": \"Tamu\"\n            },\n            {\n                \"id_jadwal_pertandingan\": 4,\n                \"nama_pemain\": \"Kevin De Bruyne\",\n                \"tipe\": \"1\",\n                \"waktu\": \"15:00\",\n                \"id_tim_pemain\": 2,\n                \"nomor_punggung_pemain\": 17,\n                \"tim\": \"Manchester City\",\n                \"status_tim\": \"Tamu\"\n            },\n            {\n                \"id_jadwal_pertandingan\": 4,\n                \"nama_pemain\": \"Kevin De Bruyne\",\n                \"tipe\": \"1\",\n                \"waktu\": \"12:20\",\n                \"id_tim_pemain\": 2,\n                \"nomor_punggung_pemain\": 17,\n                \"tim\": \"Manchester City\",\n                \"status_tim\": \"Tamu\"\n            },\n            {\n                \"id_jadwal_pertandingan\": 4,\n                \"nama_pemain\": \"Kevin De Bruyne\",\n                \"tipe\": \"1\",\n                \"waktu\": \"12:20\",\n                \"id_tim_pemain\": 2,\n                \"nomor_punggung_pemain\": 17,\n                \"tim\": \"Manchester City\",\n                \"status_tim\": \"Tamu\"\n            },\n            {\n                \"id_jadwal_pertandingan\": 4,\n                \"nama_pemain\": \"Kevin De Bruyne\",\n                \"tipe\": \"1\",\n                \"waktu\": \"12:20\",\n                \"id_tim_pemain\": 2,\n                \"nomor_punggung_pemain\": 17,\n                \"tim\": \"Manchester City\",\n                \"status_tim\": \"Tamu\"\n            },\n            {\n                \"id_jadwal_pertandingan\": 4,\n                \"nama_pemain\": \"Kevin De Bruyne\",\n                \"tipe\": \"1\",\n                \"waktu\": \"12:20\",\n                \"id_tim_pemain\": 2,\n                \"nomor_punggung_pemain\": 17,\n                \"tim\": \"Manchester City\",\n                \"status_tim\": \"Tamu\"\n            },\n            {\n                \"id_jadwal_pertandingan\": 4,\n                \"nama_pemain\": \"Luke Shaw\",\n                \"tipe\": \"1\",\n                \"waktu\": \"17:20\",\n                \"id_tim_pemain\": 3,\n                \"nomor_punggung_pemain\": 23,\n                \"tim\": \"Manchester United\",\n                \"status_tim\": \"Tuan Rumah\"\n            },\n            {\n                \"id_jadwal_pertandingan\": 4,\n                \"nama_pemain\": \"Kevin De Bruyne\",\n                \"tipe\": \"1\",\n                \"waktu\": \"15:20\",\n                \"id_tim_pemain\": 2,\n                \"nomor_punggung_pemain\": 17,\n                \"tim\": \"Manchester City\",\n                \"status_tim\": \"Tamu\"\n            }\n        ],\n        \"skor_tuan_rumah\": 1,\n        \"skor_tamu\": 7,\n        \"kartu_kuning\": 0,\n        \"kartu_merah\": 0,\n        \"total_skor_akhir\": \"Skor Tim Tuan Rumah: 1 - Skor Tim Tamu: 7\",\n        \"status_akhir_pertandingan\": \"Manchester City (Tamu) Menang\",\n        \"jumlah_gol\": {\n            \"Kevin De Bruyne\": 7,\n            \"Luke Shaw\": 1\n        },\n        \"gol_terbanyak\": \"Kevin De Bruyne mencetak gol terbanyak\",\n        \"detail_seluruh_kemenangan\": [\n            {\n                \"id_jadwal_pertandingan\": 4,\n                \"tuan_rumah\": 0,\n                \"tamu\": 1\n            },\n            {\n                \"id_jadwal_pertandingan\": 5,\n                \"tuan_rumah\": 0,\n                \"tamu\": 1\n            }\n        ],\n        \"total_seluruh_kemenangan_tuan_rumah\": 0,\n        \"total_seluruh_kemenangan_tamu\": 2\n    },\n    \"status\": true,\n    \"__type\": \"report\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Report berisi Endpoint untuk merangkum beberapa tabel dengan informasi yang dibutuhkan\n\n* * *\n\n**Soal Nomor 5**\n\ndata report yang menampilkan informasi hasil pertandingan berupa (jadwal pertandingan,  \ntim home, tim away, skor akhir, status akhir pertandingan (Tim Home Menang/Tim Away  \nMenang/ Draw), pemain dengan pencetak gol terbanyak, akumulasi total kemenangan tim  \nhome dari awal sampai dengan hasil pertandingan tersebut, akumulasi total kemenangan  \ntim away dari awal sampai dengan hasil pertandingan tersebut)",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Adding response token into Postman Environment\r",
+							"var jsonData = JSON.parse(responseBody)\r",
+							"postman.setEnvironmentVariable(\"TOKEN\", jsonData.body.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "Login berisi Endpoint untuk mendapatkan sebuah \"token\" yang digunakan untuk mengakses seluruh Endpoint Private"
+			},
+			"response": [
+				{
+					"name": "Contoh Response (200)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "test12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Aug 2022 15:09:49 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Aug 2022 15:09:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.4"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"body\": {\n        \"token\": \"2|UPhthLXiwZHNuy83LASdkddXOubynOMhccd9t3eT\",\n        \"token_type\": \"Bearer\"\n    },\n    \"status\": true,\n    \"__type\": \"login\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_PRIVATE_URL}}/user",
+					"host": [
+						"{{BASE_PRIVATE_URL}}"
+					],
+					"path": [
+						"user"
+					]
+				},
+				"description": "Profile berisi informasi Admin yang telah login berdasarkan \"token\" yang diberikan"
+			},
+			"response": [
+				{
+					"name": "Contoh Response (200)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Aug 2022 16:39:08 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Aug 2022 16:39:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.4"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"id_perusahaan\": 1,\n    \"nama\": \"test\",\n    \"email\": \"test@gmail.com\",\n    \"soft_delete\": false,\n    \"created_at\": null,\n    \"updated_at\": null\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_PRIVATE_URL",
+			"value": "http://127.0.0.1:8000/api"
+		}
+	]
+}

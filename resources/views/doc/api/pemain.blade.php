@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="border_bottom"></div>
                             </article>
-                            <article class="documentation_body" id="documentation">
+                            <article class="documentation_body" id="list">
                                 <h4 class="c_head">List <span class="badge bg-success ml-1">GET</span></h4>
                                 <div class="highlight">
                                     <pre>
@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="border_bottom mt-5"></div>
                             </article>
-                            <article class="documentation_body" id="documentation">
+                            <article class="documentation_body" id="create">
                                 <h4 class="c_head">Create <span class="badge bg-info ml-1">POST</span></h4>
                                 <div class="highlight">
                                     <pre>
@@ -175,7 +175,7 @@
                                 <div class="border_bottom mt-5"></div>
                             </article>
                             
-                            <article class="documentation_body" id="documentation">
+                            <article class="documentation_body" id="update">
                                 <h4 class="c_head">Update <span class="badge bg-info ml-1">POST</span></h4>
                                 <div class="highlight">
                                     <pre>
@@ -202,7 +202,7 @@
                                 <div class="border_bottom mt-5"></div>
                             </article>
 
-                            <article class="documentation_body" id="documentation">
+                            <article class="documentation_body" id="delete">
                                 <h4 class="c_head">Delete <span class="badge bg-danger ml-1">DELETE</span></h4>
                                 <div class="highlight">
                                     <pre>
@@ -246,10 +246,12 @@
                                 <input type="checkbox" name="something" id="something" class="tab_switcher">
                                 <label for="something" class="tab-btn"><i class="far fa-moon"></i></label>
                             </div>
-                            <h6>On this page:</h6>
+                            <h6>Dalam Halaman Ini:</h6>
                             <nav class="list-unstyled doc_menu" id="navbar-example3">
-                                <a href="#toggle" class="nav-link">Toggle</a>
-                                <a href="#accordions" class="nav-link">Accordion</a>
+                                <a href="#list" class="nav-link">List</a>
+                                <a href="#create" class="nav-link">Create</a>
+                                <a href="#update" class="nav-link">Update</a>
+                                <a href="#delete" class="nav-link">Delete</a>
                             </nav>
                         </div><div id="mCSB_3_scrollbar_vertical" class="mCSB_scrollTools mCSB_3_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_3_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 223px; max-height: 240px; top: 0px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
                     </div>
