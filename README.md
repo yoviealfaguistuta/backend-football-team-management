@@ -48,7 +48,7 @@ If you already have all the prerequisites you can follow this step:
   Rename .env.example into .env
   ```
   
-3. Connect to Database
+3. Change BASE_URL and Connect to Database
   ```sh
   Scroll down until you find "# MODIFY HERE" in .env, modify BASE_URL and connection with your local database setup 
   ```
