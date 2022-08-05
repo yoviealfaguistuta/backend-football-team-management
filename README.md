@@ -6,7 +6,7 @@
   <h3 align="center">Football Team Management</h3>
 
   <p align="center">
-    <a href="http://128.199.92.158:3008/swagger/index.html">View Demo</a>
+    <a href="https://football-team-management.spaceart.tech">View Demo</a>
     ·
     <a href="https://github.com/yoviealfaguistuta/backend-football-team-management/issues">Report Bug</a>
     ·
@@ -50,7 +50,7 @@ If you already have all the prerequisites you can follow this step:
   
 3. Connect to Database
   ```sh
-  Change connection in .env file with your local database setup 
+  Scroll down until you find "# MODIFY HERE" in .env, modify BASE_URL and connection with your local database setup 
   ```
 
 4. Install Package
@@ -74,7 +74,11 @@ You can run this app by doing this:
   ```sh
   php artisan serve
   ```
- 
+
+Open browser and go to:
+  ```sh
+  http://127.0.0.1:8000
+  ```
 <!-- CONTRIBUTING -->
 ## Contributing
 

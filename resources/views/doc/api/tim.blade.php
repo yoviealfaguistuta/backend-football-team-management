@@ -32,7 +32,7 @@
                                 <h4 class="c_head">List <span class="badge bg-success ml-1">GET</span></h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/tim</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/tim</code>
                                     </pre>
                                 </div>
                                 <p>Menampilkan daftar Tim yang terdapat pada tabel "tim"</p>
@@ -69,10 +69,10 @@
                                                                     "created_at": "2022-08-05T07:31:30.000000Z"
                                                                 }
                                                             ],
-                                                            "first_page_url": "http://127.0.0.1:8000/api/tim?page=1",
+                                                            "first_page_url": "{{ env('BASE_URL') }}/tim?page=1",
                                                             "from": 1,
                                                             "last_page": 1,
-                                                            "last_page_url": "http://127.0.0.1:8000/api/tim?page=1",
+                                                            "last_page_url": "{{ env('BASE_URL') }}/tim?page=1",
                                                             "links": [
                                                                 {
                                                                     "url": null,
@@ -80,7 +80,7 @@
                                                                     "active": false
                                                                 },
                                                                 {
-                                                                    "url": "http://127.0.0.1:8000/api/tim?page=1",
+                                                                    "url": "{{ env('BASE_URL') }}/tim?page=1",
                                                                     "label": "1",
                                                                     "active": true
                                                                 },
@@ -91,7 +91,7 @@
                                                                 }
                                                             ],
                                                             "next_page_url": null,
-                                                            "path": "http://127.0.0.1:8000/api/tim",
+                                                            "path": "{{ env('BASE_URL') }}/tim",
                                                             "per_page": 10,
                                                             "prev_page_url": null,
                                                             "to": 2,
@@ -111,7 +111,7 @@
                                 <h4 class="c_head">Create <span class="badge bg-info ml-1">POST</span></h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/tim</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/tim</code>
                                     </pre>
                                 </div>
                                 <p>Menambahkan data Tim kedalam tabel "tim"</p>
@@ -148,7 +148,7 @@
                                 <h4 class="c_head">Update <span class="badge bg-info ml-1">POST</span></h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/tim/{id_tim}</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/tim/{id_tim}</code>
                                     </pre>
                                 </div>
                                 <p>Memperbarui data Tim yang telah ada di dalam tabel "tim" dengan yang baru</p>
@@ -175,7 +175,7 @@
                                 <h4 class="c_head">Delete <span class="badge bg-danger ml-1">DELETE</span></h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/tim/{id_tim}</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/tim/{id_tim}</code>
                                     </pre>
                                 </div>
                                 <p>Memperbarui "soft_delete" menjadi "true", jika "soft_delete" sudah berstatus "true" maka data akan dihapus permanen</p>

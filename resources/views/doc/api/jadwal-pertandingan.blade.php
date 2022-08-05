@@ -32,7 +32,7 @@
                                 <h4 class="c_head">List <span class="badge bg-success ml-1">GET</span></h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/jadwal-pertandingan</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/jadwal-pertandingan</code>
                                     </pre>
                                 </div>
                                 <p>Menampilkan daftar Jadwal Pertandingan yang terdapat pada tabel "jadwal_pertandingan"</p>
@@ -58,10 +58,10 @@
                                                                     "logo_tim_tamu": "/assets/images/data/1659684897_Manchester_City_FC_badge.svg.png"
                                                                 }
                                                             ],
-                                                            "first_page_url": "http://127.0.0.1:8000/api/jadwal-pertandingan?page=1",
+                                                            "first_page_url": "{{ env('BASE_URL') }}/jadwal-pertandingan?page=1",
                                                             "from": 1,
                                                             "last_page": 1,
-                                                            "last_page_url": "http://127.0.0.1:8000/api/jadwal-pertandingan?page=1",
+                                                            "last_page_url": "{{ env('BASE_URL') }}/jadwal-pertandingan?page=1",
                                                             "links": [
                                                                 {
                                                                     "url": null,
@@ -69,7 +69,7 @@
                                                                     "active": false
                                                                 },
                                                                 {
-                                                                    "url": "http://127.0.0.1:8000/api/jadwal-pertandingan?page=1",
+                                                                    "url": "{{ env('BASE_URL') }}/jadwal-pertandingan?page=1",
                                                                     "label": "1",
                                                                     "active": true
                                                                 },
@@ -80,7 +80,7 @@
                                                                 }
                                                             ],
                                                             "next_page_url": null,
-                                                            "path": "http://127.0.0.1:8000/api/jadwal-pertandingan",
+                                                            "path": "{{ env('BASE_URL') }}/jadwal-pertandingan",
                                                             "per_page": 10,
                                                             "prev_page_url": null,
                                                             "to": 1,
@@ -100,7 +100,7 @@
                                 <h4 class="c_head">Create <span class="badge bg-info ml-1">POST</span></h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/jadwal-pertandingan</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/jadwal-pertandingan</code>
                                     </pre>
                                 </div>
                                 <p>Menambahkan data Jadwal Pertandingan kedalam tabel "jadwal_pertandingan"</p>
@@ -135,7 +135,7 @@
                                 <h4 class="c_head">Update <span class="badge bg-info ml-1">POST</span></h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/jadwal-pertandingan/{id_jadwal_pertandingan}</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/jadwal-pertandingan/{id_jadwal_pertandingan}</code>
                                     </pre>
                                 </div>
                                 <p>Memperbarui data Jadwal Pertandingan yang telah ada di dalam tabel "jadwal_pertandingan" dengan yang baru</p>
@@ -162,7 +162,7 @@
                                 <h4 class="c_head">Delete <span class="badge bg-danger ml-1">DELETE</span></h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/jadwal-pertandingan/{id_jadwal_pertandingan}</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/jadwal-pertandingan/{id_jadwal_pertandingan}</code>
                                     </pre>
                                 </div>
                                 <p>Memperbarui "soft_delete" menjadi "true", jika "soft_delete" sudah berstatus "true" maka data akan dihapus permanen</p>

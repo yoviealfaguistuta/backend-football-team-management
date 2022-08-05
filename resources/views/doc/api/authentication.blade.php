@@ -24,7 +24,7 @@
                                 <h4 class="c_head">Login</h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/login</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/login</code>
                                     </pre>
                                 </div>
                                 
@@ -54,7 +54,7 @@
                                 <h4 class="c_head">Profile</h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/user</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/user</code>
                                     </pre>
                                 </div>
                                 

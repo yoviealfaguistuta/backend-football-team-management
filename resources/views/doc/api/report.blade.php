@@ -33,7 +33,7 @@
                                 <h4 class="c_head">Report <span class="badge bg-success ml-1">GET</span></h4>
                                 <div class="highlight">
                                     <pre>
-                                        <code class="language-htmlasc" data-lang="html">http://127.0.0.1:8000/api/report/4</code>
+                                        <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/report/4</code>
                                     </pre>
                                 </div>
                                 <p>Menampilkan rangkuman data dari beberapa tabel dengan informasi yang dibutuhkan</p>
