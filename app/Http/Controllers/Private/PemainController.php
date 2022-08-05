@@ -62,7 +62,7 @@ class PemainController extends Controller
         // Cek jika terdapat pemain dengan nomor punggung yang sama dalam 1 tim
         $nomor_punggung = $this->pemain->go_nomor_punggung_exists($request->id_tim, $request->nomor_punggung);
         if ($nomor_punggung) {
-            return $this->sendFailedResponse('Nomor punggung sudah digunakan', $__type);
+            return $this->sendFailedResponse('Nomor punggung '. $request->nomor_punggung .' sudah digunakan', $__type);
         }
 
         // Eksekusi query dari Pemain "create" models
@@ -118,9 +118,9 @@ class PemainController extends Controller
         $pemain = $this->pemain->go_detail($id);
 
         // Cek jika terdapat pemain dengan nomor punggung yang sama dalam 1 tim
-        $nomor_punggung = $this->pemain->go_nomor_punggung_exists($request->id_tim, $request->nomor_punggung, $pemain->nomor_punggung);
+        $nomor_punggung = $this->pemain->go_nomor_punggung_exists($request->id_tim, $request->nomor_punggung, $pemain->nomor_punggung, $request->id);
         if ($nomor_punggung) {
-            return $this->sendFailedResponse('Nomor punggung sudah digunakan', $__type);
+            return $this->sendFailedResponse('Nomor punggung '. $request->nomor_punggung .' sudah digunakan' , $__type);
         }
 
         // Eksekusi query dari Pemain "go_update" models

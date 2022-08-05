@@ -63,13 +63,17 @@ class Pemain extends Model
         return $data;
     }
 
-    public function go_nomor_punggung_exists($id_tim, $nomor_punggung, $old_nomor_punggung = null) {
-        if ($old_nomor_punggung === null) {
+    public function go_nomor_punggung_exists($id_tim, $nomor_punggung, $old_nomor_punggung = null, $id = null) {
+        if ($old_nomor_punggung == null) {
             $data = Pemain::where([['id_tim', $id_tim], ['nomor_punggung', $nomor_punggung]])->exists();
             return $data;
         }
 
-        $data = Pemain::where([['id_tim', $id_tim], ['nomor_punggung', '!=', $old_nomor_punggung]])->exists();
+        if ($old_nomor_punggung == $nomor_punggung) {
+            return false;
+        }
+        
+        $data = Pemain::select('id', 'nomor_punggung')->where([['id_tim', $id_tim], ['nomor_punggung', $nomor_punggung]])->exists();
         return $data;
     }
 
