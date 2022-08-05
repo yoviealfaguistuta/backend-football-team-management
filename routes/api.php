@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Private\JadwalPertandinganController;
 use App\Http\Controllers\Private\PemainController;
 use App\Http\Controllers\Private\PerusahaanController;
 use App\Http\Controllers\Private\TimController;
@@ -45,6 +46,13 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::post('', [PemainController::class, 'create'])->name('admin.pemain.create');
         Route::post('{id}', [PemainController::class, 'update'])->name('admin.pemain.update');
         Route::delete('{id}', [PemainController::class, 'delete'])->name('admin.pemain.delete');
+    });
+
+    Route::prefix('jadwal-pertandingan')->group(function () {
+        Route::get('', [JadwalPertandinganController::class, 'list'])->name('admin.jadwal-pertandingan');
+        Route::post('', [JadwalPertandinganController::class, 'create'])->name('admin.jadwal-pertandingan.create');
+        Route::post('{id}', [JadwalPertandinganController::class, 'update'])->name('admin.jadwal-pertandingan.update');
+        Route::delete('{id}', [JadwalPertandinganController::class, 'delete'])->name('admin.jadwal-pertandingan.delete');
     });
    
 });
