@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
@@ -27,7 +28,7 @@ class LoginController extends Controller
                 ], $this->VALIDATION_FAILED_CODE);
             }
             
-            $admin = Admin::where([['email', $request->email], ['password', $request->password]])->first();
+            $admin = Admin::where('email', $request->email)->first();
             
             if ($admin === null || $request->email !== $admin->email) {
                 return response()->json([
@@ -38,8 +39,8 @@ class LoginController extends Controller
                     '__type' => 'login'
                 ], $this->VALIDATION_FAILED_CODE);
             }
-            
-            if ($request->password != $admin->password) {
+
+            if (!Hash::check($request->password, $admin->password)) {
                 return response()->json([
                     'body' => [
                         'messages' => 'Kata sandi tidak cocok'
