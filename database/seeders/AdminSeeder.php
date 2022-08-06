@@ -19,8 +19,8 @@ class AdminSeeder extends Seeder
         $admin = new Admin();
         $admin->id_perusahaan = 1;
         $admin->nama = 'Administrator-Man';
-        $admin->email = 'admin@gmail.com';
-        $admin->password = bcrypt('12345678');
+        $admin->email = 'test@gmail.com';
+        $admin->password = bcrypt('test12345');
         $admin->soft_delete = false;
         $admin->created_at = Carbon::now();
         $admin->updated_at = Carbon::now();
