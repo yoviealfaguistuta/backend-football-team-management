@@ -1,7 +1,7 @@
 <div class="mobile_nav_wrapper">
     <nav class="mobile_nav_top">
         <ul class="navbar-nav menu ml-auto">
-            <li class="nav-item dropdown submenu">
+            {{-- <li class="nav-item dropdown submenu">
                 <a href="#" class="nav-link">Home</a>
                 <i class="arrow_carrot-down_alt2 mobile_dropdown_icon"></i>
                 <ul class="dropdown-menu">
@@ -131,82 +131,38 @@
                     <li class="nav-item"><a href="blog-list.html" class="nav-link">Blog List</a></li>
                     <li class="nav-item"><a href="blog-single.html" class="nav-link">Blog Details</a></li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>
     </nav>
     <div class="mobile_nav_bottom">
         <aside class="doc_left_sidebarlist">
-            <h2>KbDoc Documentation</h2>
             <div class="scroll">
                 <ul class="list-unstyled nav-sidebar">
                     <li class="nav-item">
-                        <a href="doclist.html" class="nav-link"><img src="{{ url('img') }}/side-nav/home.png" alt="">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="shortcode.html" class="nav-link"><img src="{{ url('img') }}/side-nav/briefcase.png" alt="briefcase">Shortcodes</a>
-                        <span class="icon"><i class="arrow_carrot-down"></i></span>
-                        <ul class="list-unstyled dropdown_nav">
-                            <li><a href="tab.html">Tabs</a></li>
-                            <li><a href="accordion.html">Accordion</a></li>
-                            <li><a href="doclist.html">Doclist</a></li>
-                            <li><a href="notice.html">Notices</a></li>
-                            <li><a href="table.html">Table</a></li>
-                            <li><a href="lightbox.html">Image Lightbox</a></li>
-                            <li><a href="tooltip.html">Tooltip</a></li>
-                            <li><a href="can-use.html">Can I use</a></li>
-                        </ul>
+                        <a href="{{ route('/') }}" class="nav-link"><img src="{{ url('img') }}/side-nav/home.png" alt="">Getting Started</a>
                     </li>
                     <li class="nav-item active">
-                        <a href="layouts.html" class="nav-link"><img src="{{ url('img') }}/side-nav/coding.png" alt="">Layouts</a>
+                        <a href="#" class="nav-link"><img src="{{ url('img') }}/side-nav/briefcase.png" alt="briefcase">API</a>
                         <span class="icon"><i class="arrow_carrot-down"></i></span>
                         <ul class="list-unstyled dropdown_nav">
-                            <li><a href="layouts.html" class="active">Both Sidebar</a></li>
-                            <li><a href="layout-leftsidebar.html">Left Sidebar</a></li>
-                            <li><a href="layout-full.html">Full-width</a></li>
-                            <li><a href="sticky-menu.html">Sticky Menu</a></li>
-                            <li><a href="simple-footer.html">Simple Footer</a></li>
+                            <li><a href="{{ route('studi-kasus') }}">Studi Kasus</a></li>
+                            <li><a href="{{ route('authentication') }}">Authentication</a></li>
+                            <li><a href="{{ route('perusahaan') }}">Perusahaan</a></li>
+                            <li><a href="{{ route('tim') }}">Tim</a></li>
+                            <li><a href="{{ route('pemain') }}">Pemain</a></li>
+                            <li><a href="{{ route('jadwal-pertandingan') }}">Jadwal Pertandingan</a></li>
+                            <li><a href="{{ route('hasil-pertandingan') }}">Hasil Pertandingan</a></li>
+                            <li><a href="{{ route('report') }}">Report</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="tour.html" class="nav-link"><img src="{{ url('img') }}/side-nav/chat1.png" alt="">Tour</a>
-                        <span class="icon"><i class="arrow_carrot-down"></i></span>
-                        <ul class="list-unstyled dropdown_nav">
-                            <li><a href="image-pointing.html">Image Hotspots</a></li>
-                            <li><a href="tour.html">Application Interface</a></li>
-                        </ul>
+                        <a target="_blank" download rel="noreferrer" href="{{ url('Ayo Indonesia - Software Developer Technical Test.postman_collection.json') }}" class="nav-link"><img src="{{ url('img') }}/side-nav/document.png" alt="">Postman Collection</a>
                     </li>
                     <li class="nav-item">
-                        <a href="typography.html" class="nav-link"><img src="{{ url('img') }}/side-nav/document.png" alt="">Content</a>
-                        <span class="icon"><i class="arrow_carrot-down"></i></span>
-                        <ul class="list-unstyled dropdown_nav">
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="code.html">Code</a></li>
-                            <li><a href="image.html">Image</a></li>
-                            <li><a href="video.html">Video</a></li>
-                                <li><a href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
-                        </ul>
+                        <a target="_blank" download rel="noreferrer" href="{{ url('https://github.com/yoviealfaguistuta/backend-football-team-management') }}" class="nav-link"><img src="{{ url('img') }}/side-nav/chat1.png" alt="">Github</a>
                     </li>
                     <li class="nav-item">
-                        <a href="changelog.html" class="nav-link"><img src="{{ url('img') }}/side-nav/document2.png" alt="">Change Log</a>
-                    </li>
-                </ul>
-                <ul class="list-unstyled nav-sidebar coding_nav">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link"><img src="{{ url('img') }}/side-nav/account.png" alt="">Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link"><img src="{{ url('img') }}/side-nav/coding.png" alt="">Development</a>
-                    </li>
-                </ul>
-                <ul class="list-unstyled nav-sidebar bottom_nav">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link"><img src="{{ url('img') }}/side-nav/united-states.png" alt="">Unlted States</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link"><img src="{{ url('img') }}/side-nav/edit.png" alt="">English </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link"><img src="{{ url('img') }}/side-nav/users.png" alt="">Sign In <i class="arrow_right"></i></a>
+                        <a target="_blank" download rel="noreferrer" href="{{ url('http://yoviealfaguistuta.site/') }}" class="nav-link"><img src="{{ url('img') }}/side-nav/coding.png" alt="">Portofolio</a>
                     </li>
                 </ul>
             </div>

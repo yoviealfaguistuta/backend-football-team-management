@@ -5,7 +5,7 @@
             <i class="icon_close"></i>
         </div>
         <div class="mobile_logo">
-            <a href="#"><img src="{{ url('img') }}/logo.png" alt="logo"></a>
+            {{-- <a href="#"><img src="{{ url('img') }}/logo.png" alt="logo"></a> --}}
         </div>
     </div>
     @include('frame.sidebar-left-mobile')
