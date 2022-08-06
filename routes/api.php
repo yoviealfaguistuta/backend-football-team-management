@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Public\LoginController;
 use App\Http\Controllers\Private\HasilPertandinganController;
 use App\Http\Controllers\Private\JadwalPertandinganController;
 use App\Http\Controllers\Private\PemainController;
