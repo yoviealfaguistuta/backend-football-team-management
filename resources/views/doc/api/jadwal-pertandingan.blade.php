@@ -104,6 +104,38 @@
                                     </pre>
                                 </div>
                                 <p>Menambahkan data Jadwal Pertandingan kedalam tabel "jadwal_pertandingan"</p>
+                                <h4 class="c_head">Body (form-data)</h4>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Key</th>
+                                            <th>Value</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>id_tim_tuan_rumah</td>
+                                            <td>1</td>
+                                            <td>ID Tim Tuan Rumah - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>id_tim_tamu</td>
+                                            <td>2</td>
+                                            <td>ID Tim Tamu - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>tanggal</td>
+                                            <td>2022-08-06</td>
+                                            <td>Tanggal - ['required', 'date'] - (Y-m-d)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>waktu</td>
+                                            <td>15:20</td>
+                                            <td>Waktu - ['required', 'string'] - (h:I)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <a class="toggle_btn" data-toggle="collapse" href="#xcChsXY6Ni" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Response 200 OK</a>
                                 <div class="collapse multi-collapse" id="xcChsXY6Ni">
                                     <div class="card card-body toggle_body"> 
@@ -139,6 +171,38 @@
                                     </pre>
                                 </div>
                                 <p>Memperbarui data Jadwal Pertandingan yang telah ada di dalam tabel "jadwal_pertandingan" dengan yang baru</p>
+                                <h4 class="c_head">Body (form-data)</h4>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Key</th>
+                                            <th>Value</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>id_tim_tuan_rumah</td>
+                                            <td>1</td>
+                                            <td>ID Tim Tuan Rumah - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>id_tim_tamu</td>
+                                            <td>2</td>
+                                            <td>ID Tim Tamu - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>tanggal</td>
+                                            <td>2022-08-06</td>
+                                            <td>Tanggal - ['required', 'date'] - (Y-m-d)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>waktu</td>
+                                            <td>15:20</td>
+                                            <td>Waktu - ['required', 'string'] - (h:I)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <a class="toggle_btn" data-toggle="collapse" href="#jQ2bC3wnEH" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Response 200 OK</a>
                                 <div class="collapse multi-collapse" id="jQ2bC3wnEH">
                                     <div class="card card-body toggle_body"> 

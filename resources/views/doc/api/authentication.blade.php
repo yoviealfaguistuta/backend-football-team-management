@@ -27,7 +27,28 @@
                                         <code class="language-htmlasc" data-lang="html">{{ env('BASE_URL') }}/login</code>
                                     </pre>
                                 </div>
-                                
+                                <h4 class="c_head">Body (form-data)</h4>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Key</th>
+                                            <th>Value</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>email</td>
+                                            <td>test@gmail.com</td>
+                                            <td>['required', 'email', 'string']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>password</td>
+                                            <td>test12345</td>
+                                            <td>['required', 'string', 'min:6']</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <p>Login berisi Endpoint untuk mendapatkan sebuah "token" yang digunakan untuk mengakses seluruh Endpoint Private</p>
                                 <a class="toggle_btn" data-toggle="collapse" href="#lVhxosIk2Q" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Response 200 OK</a>
                                 <div class="collapse multi-collapse show" id="lVhxosIk2Q">

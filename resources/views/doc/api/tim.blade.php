@@ -115,6 +115,48 @@
                                     </pre>
                                 </div>
                                 <p>Menambahkan data Tim kedalam tabel "tim"</p>
+                                <h4 class="c_head">Body (form-data)</h4>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Key</th>
+                                            <th>Value</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>id_perusahaan</td>
+                                            <td>1</td>
+                                            <td>ID Perusahaan - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>nama</td>
+                                            <td>Manchester City</td>
+                                            <td>Nama - ['required', 'min:6', 'string']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>logo</td>
+                                            <td>(your_image).png</td>
+                                            <td>Logo - ['required', 'mimes:jpeg,jpg,png', 'max:10000']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>tahun_berdiri</td>
+                                            <td>1880</td>
+                                            <td>Tahun Berdiri - ['required', 'integer', 'min:1900', 'max:'.(date('Y')+1), 'digits:4']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>alamat_markas_tim</td>
+                                            <td>Gorton</td>
+                                            <td>Alamat Markas Tim - ['required', 'min:6', 'string']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>kota_markas_tim</td>
+                                            <td>Manchester, United Kingdom</td>
+                                            <td>Kota Markas Tim - ['required', 'min:6', 'max:100', 'string']</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <a class="toggle_btn" data-toggle="collapse" href="#xcChsXY6Ni" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Response 200 OK</a>
                                 <div class="collapse multi-collapse" id="xcChsXY6Ni">
                                     <div class="card card-body toggle_body"> 

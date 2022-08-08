@@ -146,6 +146,53 @@
                                     </pre>
                                 </div>
                                 <p>Menambahkan data Pemain kedalam tabel "pemain"</p>
+                                <h4 class="c_head">Body (form-data)</h4>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Key</th>
+                                            <th>Value</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>id_tim</td>
+                                            <td>2</td>
+                                            <td>ID Tim - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>nama</td>
+                                            <td>Kevin De Bruyne</td>
+                                            <td>Nama - ['required', 'min:6', 'string']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>tanggal</td>
+                                            <td>2022-08-06</td>
+                                            <td>Tanggal - ['required', 'date'] - (Y-m-d)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>tinggi_badan</td>
+                                            <td>1.89</td>
+                                            <td>Tinggi Badan - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>berat_badan</td>
+                                            <td>68</td>
+                                            <td>Berat Badan - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>posisi_pemain</td>
+                                            <td>1</td>
+                                            <td>Posisi Pemain 1 = penyerang, 2 = gelandang, 3 = bertahan, 4 = penjaga gawang - ['required', 'min:1', 'max:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>nomor_punggung</td>
+                                            <td>10</td>
+                                            <td>Nomor Punggung - ['required', 'min:1', 'max:1000', 'numeric']</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <a class="toggle_btn" data-toggle="collapse" href="#xcChsXY6Ni" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Response 200 OK</a>
                                 <div class="collapse multi-collapse" id="xcChsXY6Ni">
                                     <div class="card card-body toggle_body"> 
@@ -183,6 +230,53 @@
                                     </pre>
                                 </div>
                                 <p>Memperbarui data Pemain yang telah ada di dalam tabel "pemain" dengan yang baru</p>
+                                <h4 class="c_head">Body (form-data)</h4>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Key</th>
+                                            <th>Value</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>id_tim</td>
+                                            <td>2</td>
+                                            <td>ID Tim - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>nama</td>
+                                            <td>Kevin De Bruyne</td>
+                                            <td>Nama - ['required', 'min:6', 'string']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>tanggal</td>
+                                            <td>2022-08-06</td>
+                                            <td>Tanggal - ['required', 'date'] - (Y-m-d)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>tinggi_badan</td>
+                                            <td>1.89</td>
+                                            <td>Tinggi Badan - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>berat_badan</td>
+                                            <td>68</td>
+                                            <td>Berat Badan - ['required', 'min:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>posisi_pemain</td>
+                                            <td>1</td>
+                                            <td>Posisi Pemain 1 = penyerang, 2 = gelandang, 3 = bertahan, 4 = penjaga gawang - ['required', 'min:1', 'max:1', 'numeric']</td>
+                                        </tr>
+                                        <tr>
+                                            <td>nomor_punggung</td>
+                                            <td>10</td>
+                                            <td>Nomor Punggung - ['required', 'min:1', 'max:1000', 'numeric']</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <a class="toggle_btn" data-toggle="collapse" href="#jQ2bC3wnEH" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Response 200 OK</a>
                                 <div class="collapse multi-collapse" id="jQ2bC3wnEH">
                                     <div class="card card-body toggle_body"> 
