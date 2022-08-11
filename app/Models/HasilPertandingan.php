@@ -40,7 +40,7 @@ class HasilPertandingan extends Model
         
         $data = HasilPertandingan::select(
             'hasil_pertandingan.id_jadwal_pertandingan',
-            'jadwal_pertandingan.id_tim_tuan_rumah',
+            // 'jadwal_pertandingan.id_tim_tuan_rumah',
             'tim_tuan_rumah.nama as nama_tim_tuan_rumah',
             'tim_tuan_rumah.id as id_tim_tuan_rumah',
             'tim_tamu.id as id_tim_tamu',
